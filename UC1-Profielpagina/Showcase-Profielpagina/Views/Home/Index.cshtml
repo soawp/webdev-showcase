@@ -3,9 +3,15 @@
 }
 
 <div class="page">
-    <section class="personalia">
+    <div class="progress-indicator">
+        <span class="dot active" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+    </div>
+    <section class="personalia page-section" id="page1">
         <div class="intro-content">
-            <h1 class="person-name slide-in">Welkom.</h1>
+            <img class="bg-img" src="~/images//daan.png"/>
+            <h1 class="person-name slide-in">Welkom op mijn <span class="underlined-text">portfolio.</span></h1>
             <p class="slide-in">
                 Mijn naam is <mark class="green">Daan</mark>, een gepassioneerde <mark class="yellow">softwareontwikkelaar</mark> met een focus op <mark class="pink">webontwikkeling</mark>.
                 <mark class="green">Momenteel studeer ik aan Windesheim</mark>, waar ik mijn kennis en vaardigheden op het gebied van
@@ -15,7 +21,6 @@
                 <mark class="pink">efficiënte websites</mark> te bouwen.
             </p>
         </div>
-
         <div class="scroll-down-indicator">
             <i class="fa-solid fa-chevron-down"></i>
         </div>
@@ -27,7 +32,7 @@
 
     </section>
 
-    <section class="profile">
+    <section class="profile page-section" id="page2">
         <section class="profile-content mt-3">
             <div class="container">
                 <div id="accordion">
@@ -91,7 +96,7 @@
                     </div>
                     <div class="accordion-card">
                         <a class="profile-content__category-title" data-toggle="collapse" href="#collapseThree" aria-expanded="false">
-                            Vaardigeheden.
+                            Vaardigheden.
                             <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                         </a>
                         <div id="collapseThree" class="collapse" data-parent="#accordion">
@@ -135,7 +140,46 @@
             </div>
         </section>
     </section>
-    <section class="footer">
+    <section class="footer page-section" id="page3">
 
     </section>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".page-section");
+        const dots = document.querySelectorAll(".dot");
+
+        const observerOptions = {
+            root: null, // Uses viewport
+            rootMargin: "0px",
+            threshold: 0.6 // At least 60% visible to trigger
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bgColor = window.getComputedStyle(entry.target).backgroundColor;
+                    const index = [...sections].indexOf(entry.target);
+
+                    dots.forEach(dot => {
+                        dot.classList.remove("active");
+                        dot.style.backgroundColor = "gray";
+                    });
+
+                    dots[index].classList.add("active");
+
+                    if (bgColor === "rgb(38, 38, 38)") {
+                        dots[index].style.backgroundColor = "#f3f4f1";
+                    } else {
+                        dots[index].style.backgroundColor = "#262626";
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
+    });
+
+</script>

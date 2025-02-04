@@ -64,3 +64,27 @@ main {
     color: #181818;
 
 }
+
+/*slide in for nav*/
+
+@keyframes nav-slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.navbar-nav, .navbar-brand {
+    animation: nav-slide 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/*slide for logo?*/
