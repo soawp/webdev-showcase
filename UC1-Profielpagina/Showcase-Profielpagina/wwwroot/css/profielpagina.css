@@ -1,22 +1,29 @@
 ﻿/*mobile version*/
-
 .page {
     display: flex;
     flex-direction: column;
     font-family: Arial;
+    background-color: #f3f4f1;
 }
 
 .personalia {
-    background-color: #e7e8ec;
+    color: #262626;
+    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .profile {
-    background-color: #faf8f8;
+    background-color: #f3f4f1;
     width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .person-logo {
@@ -28,12 +35,14 @@
 }
 
 .profile-content {
+    width: 80%;
     padding: 15px;
     font-size: 20px;
 }
 
 .profile-content__category-title {
-    color: rgba(39, 140, 39, 0.96);
+    color: #262626;
+    font-weight: 800;
 }
 
 .profile-content__category--hidden-mobile {
@@ -63,7 +72,7 @@
 }
 
 .profile-content__institute {
-    color: rgba(39, 140, 39, 0.96);
+    color: #262626;
     margin-top: 0px;
     font-size: 14px;
 }
@@ -71,8 +80,8 @@
 @media only screen and (min-width: 800px) {
 
     .page {
-        flex-direction: row;
-    }
+/*        flex-direction: row;
+*/    }
 
     .person-name {
         order: -1;
@@ -106,3 +115,50 @@
 
 
 /*student uitwerking*/
+
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 30px;
+    }
+}
+
+.slide-in {
+    animation: slide-in 1.5s ease-in-out;
+}
+
+.person-name {
+    font-weight: 700;
+    font-size: 120px;
+}
+
+.intro-content {
+    width: 50%;
+    justify-content: center;
+    align-content: center;
+}
+
+.intro-content p {
+    font-weight: 500;
+}
+
+.scroll-down-indicator {
+    position: relative;
+    margin-top: 10%;
+    animation: MoveUpDown 3s ease-in-out infinite;
+}
