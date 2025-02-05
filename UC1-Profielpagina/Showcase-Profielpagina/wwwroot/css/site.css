@@ -16,6 +16,7 @@ header {
     height: 10vh;
     background-color: #f3f4f1;
     color: #262626;
+    position: relative;
 }
 
 .navbar {
@@ -88,3 +89,21 @@ main {
 }
 
 /*slide for logo?*/
+
+.website-logo {
+    width: 80px;
+    fill: #262626;
+    color: #262626;
+}
+
+@media only screen and (max-width: 800px) {
+    .header {
+        height: fit-content;
+        z-index: 100;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-direction: row !important;
+        gap: 10px;
+    }
+}
