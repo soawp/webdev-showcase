@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 884.85 380.47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke-width: 22px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #262626;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: #262626;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer_2">
+    <g>
+      <path id="eyeback" class="cls-3" d="M873.85,194.06c0,24.89-193.16,175.4-431.43,175.4S11,224.7,11,194.06,204.16,11,442.43,11s431.43,157.4,431.43,183.06Z"/>
+      <circle id="pupil" class="cls-1" cx="442.43" cy="182.57" r="140.65"/>
+    </g>
+    <path id="eyefront" class="cls-2" d="M873.85,194.06c0,24.89-193.16,175.4-431.43,175.4S11,224.7,11,194.06,204.16,11,442.43,11s431.43,157.4,431.43,183.06Z"/>
+  </g>
+</svg>

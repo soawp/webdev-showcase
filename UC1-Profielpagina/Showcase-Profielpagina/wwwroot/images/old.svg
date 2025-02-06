@@ -2,21 +2,21 @@
 <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1324.12 826.47">
   <defs>
     <style>
-      .cls-1 {
-        fill: none;
-        stroke-width: 50px;
-      }
+		.cls-1 {
+		fill: none;
+		stroke-width: 50px;
+		}
 
-      .cls-1, .cls-2 {
-        stroke: #262626;
-        stroke-miterlimit: 10;
-      }
+		.cls-1, .cls-2 {
+		stroke: white;
+		stroke-miterlimit: 10;
+		}
 
-      .cls-2 {
-        fill: #262626;
-        stroke-width: 22px;
-      }
-    </style>
+		.cls-2 {
+		fill: white;
+		stroke-width: 22px;
+		}
+	</style>
   </defs>
   <g id="Layer_1-2" data-name="Layer_1">
     <ellipse class="cls-1" cx="324.81" cy="413.24" rx="299.81" ry="388.24"/>

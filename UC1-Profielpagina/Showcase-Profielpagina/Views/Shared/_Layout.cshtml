@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="~/Showcase_Profielpagina.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,600;1,600&display=swap" rel="stylesheet"></head>
 <body>
+    <div class="custom-cursor"></div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/nolids.svg" class="website-logo" id="websiteLogo"/>
+                    <img src="~/images/nosparkle.svg" class="website-logo" id="websiteLogo"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,25 +27,25 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">home</a>
+                            <a class="nav-link btn-outlined" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Contact" asp-action="Me">contact</a>
+                            <a class="nav-link btn-outlined" asp-area="" asp-controller="Contact" asp-action="Me">CONTACT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">privacy</a>
+                            <a class="nav-link btn-outlined" asp-area="" asp-controller="Home" asp-action="Privacy">PRIVACY</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <hr class="white-line" />
     </header>
     <div class="">
         <main role="main">
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted p-3" id="page3">
         <div class="d-flex footer-content">
             <div class="footer-contact-information">

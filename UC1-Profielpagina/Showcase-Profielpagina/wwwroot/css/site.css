@@ -1,7 +1,12 @@
+:root {
+    --main-bg-color: #0c0b0b;
+}
+
+
 * {
     margin: 0px;
     padding: 0px;
-    font-family: "Roboto", serif;
+    font-family: "Roboto Slab", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -9,18 +14,18 @@
 
 html {
     font-size: 14px;
-    background-color: #f3f4f1;
+    background-color: var(--main-bg-color);
 }
 
 header {
     height: 10vh;
-    background-color: #f3f4f1;
+    background-color: var(--main-bg-color);
     color: #262626;
     position: relative;
 }
 
 .navbar {
-    background-color: #f3f4f1;
+    background-color: var(--main-bg-color);
 }
 
 @media (min-width: 768px) {
@@ -91,9 +96,41 @@ main {
 /*slide for logo?*/
 
 .website-logo {
-    width: 80px;
-    fill: #262626;
-    color: #262626;
+    width: 70px;
+    fill: white;
+    color: white;
+}
+
+.btn-outlined {
+    padding: 5px 15px 5px 15px !important;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.5s linear;
+    text-align: center;
+}
+
+.btn-outlined:hover{
+    color: var(--main-bg-color);
+    background-color: white;
+}
+
+
+.navbar-nav {
+    gap: 10px;
+}
+
+.white-line {
+    justify-content: center;
+    opacity: 1;
+    background-color: #5e5c5c;
+    border: none;
+    height: 1px !important;
+    width: 95%;
+    justify-self: center;
+    margin: auto;
+    margin-top: 10px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -104,6 +141,29 @@ main {
     .navbar-nav {
         display: flex;
         flex-direction: row !important;
-        gap: 10px;
     }
 }
+
+body {
+    cursor: none;
+}
+
+.custom-cursor {
+    z-index: 100000000000;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
+}
+
+.btn-outlined:hover {
+    cursor: none;
+    text-decoration: none;
+}
+
+

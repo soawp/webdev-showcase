@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1384.6 612.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-width: 30px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: white;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        fill: var(--main-bg-color);
+      }
+
+      .cls-2 {
+        fill: white;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer_2">
+    <g>
+      <path id="eyeback" class="cls-2" d="M1369.6,312.28c0,40.43-303.24,284.84-677.3,284.84S15,362.04,15,312.28,318.24,15,692.3,15s677.3,255.61,677.3,297.28Z"/>
+      <ellipse id="pupil" class="cls-3" cx="692.3" cy="293.63" rx="220.81" ry="228.4"/>
+    </g>
+    <path id="eyefront" class="cls-1" d="M1369.6,312.28c0,40.43-303.24,284.84-677.3,284.84S15,362.04,15,312.28,318.24,15,692.3,15s677.3,255.61,677.3,297.28Z"/>
+  </g>
+</svg>
