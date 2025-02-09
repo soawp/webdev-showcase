@@ -5,7 +5,7 @@
     font-family: Arial;
 }
 
-.gdpr-consent {
+/*.gdpr-consent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     margin: 5px;
     border: 2px solid gray;
     border-radius: 15px 15px 15px 15px;
-}
+}*/
 
 .gdpr-consent__description{
     display: flex;
@@ -54,5 +54,40 @@
 
 .show{
     display: block;
+}
+
+.gdpr-icon {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.gdpr-consent {
+    z-index: 100000;
+    margin-right: 5%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    border-top: 1px solid #5e5c5c;
+    border-right: 1px solid #5e5c5c;
+    border-left: 1px solid #5e5c5c;
+    border-radius: 25px 25px 0px 0px;
+    background-color: #0c0b0b;
+    color: white;
+}
+
+.gdpr-icon {
+    margin-bottom: 10px;
+}
+
+.gdpr-content {
+    display: none;
+    transition: all 1s linear;
 }
 

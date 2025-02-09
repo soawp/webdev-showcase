@@ -45,8 +45,9 @@
         <main role="main">
             @RenderBody()
         </main>
+        <hr class="white-line" />
     </div>
-    <footer class="border-top footer text-muted p-3" id="page3">
+    <footer class="footer text-muted" id="page3">
         <div class="d-flex footer-content">
             <div class="footer-contact-information">
                 <h5 class="footer-content-title">Contact Informatie.</h5>
@@ -69,8 +70,28 @@
             <img src="~/images/loglo.svg" class="footer-logo" />
             <span>&copy; 2025 - Daan de Jager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
         </div>
-
     </footer>
+
+    <section class="gdpr-consent">
+        <div class="gdpr-icon">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+        <div class="gdpr-content">
+            <div class="gdpr-consent__description">
+                <p>
+                    Deze website gebruikt cookies.
+                    We gebruiken cookies om content te personaliseren, voor social media en het analyseren
+                    van verkeer op de website, advertenties.
+                </p>
+            </div>
+
+            <div class="gdpr-consent__choice">
+                <button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
+                <button class="gdpr-consent__button--reject">Neu, misschien later</button>
+            </div>
+        </div>
+
+    </section>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
