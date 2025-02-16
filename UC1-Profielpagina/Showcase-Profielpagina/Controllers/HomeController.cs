@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Showcase_Profielpagina.Models;
+using Showcase_Profielpagina.Services;
 using System.Diagnostics;
+using System.Net.Mail;
+using System.Net;
 
 namespace Showcase_Profielpagina.Controllers
 {
@@ -28,5 +31,6 @@ namespace Showcase_Profielpagina.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

@@ -2,7 +2,16 @@
     ViewData["Title"] = "Contactpagina";
 }
 
-<div class="container">
+<div class="contact-page">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <p class="information-box" style="color: green;">@TempData["SuccessMessage"]</p>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="information-box" style="color: red;">@TempData["ErrorMessage"]</p>
+    }
 
     <h1 id="content-gpdr-consent-status"></h1>
 

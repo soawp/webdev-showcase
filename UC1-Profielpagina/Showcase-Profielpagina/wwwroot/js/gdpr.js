@@ -4,15 +4,13 @@ class GDPR {
         this.showContent();
         this.bindEvents();
 
-        // If the user accepted, hide the modal forever
         if (this.cookieStatus() === 'accept') {
             this.hideGDPR();
         }
-        // If the user rejected, show the modal on page load
         else if (this.cookieStatus() === 'reject') {
             this.showGDPR();
         } else {
-            this.showGDPR();  // Show if not accepted or rejected (including not-chosen)
+            this.showGDPR();
         }
     }
 
@@ -25,7 +23,7 @@ class GDPR {
                 this.cookieStatus('accept');
                 this.showStatus();
                 this.showContent();
-                this.hideGDPR(); // Hide permanently after accept
+                this.hideGDPR()
             });
         }
 
@@ -42,21 +40,27 @@ class GDPR {
     showContent() {
         this.resetContent();
         const status = this.cookieStatus() == null ? 'not-chosen' : this.cookieStatus();
-        const element = document.querySelector('.gdpr-consent');
 
+        let contentSelector = `.content-gdpr-${status}`;
+        let contentElement = document.querySelector(contentSelector);
 
-        if (element) {
+        if (contentElement) {
+            contentElement.classList.add('show');
+            contentElement.classList.remove('hide');
+            contentElement.style.display = "flex";
+        }
+
+        const consentElement = document.querySelector('.gdpr-consent');
+        if (consentElement) {
             if (status !== "accept") {
-                element.classList.add('show');
-                element.classList.remove('hide');
-                console.log("hier");
-            }
-            else {
-                console.log("daar");
+                consentElement.classList.add('show');
+                consentElement.classList.remove('hide');
+            } else {
                 this.hideGDPR();
             }
         }
     }
+
 
     resetContent() {
         const classes = ['.content-gdpr-accept', '.content-gdpr-reject', '.content-gdpr-not-chosen'];
@@ -66,6 +70,7 @@ class GDPR {
             if (element) {
                 element.classList.add('hide');
                 element.classList.remove('show');
+                element.style.display = "none"; 
             }
         }
     }
@@ -94,7 +99,7 @@ class GDPR {
         if (consentElement) {
             consentElement.classList.add('hide');
             consentElement.classList.remove('show');
-            consentElement.style.display = "none"; // Force hide
+            consentElement.style.display = "none";
         }
     }
 
@@ -103,33 +108,29 @@ class GDPR {
         if (consentElement) {
             consentElement.classList.add('show');
             consentElement.classList.remove('hide');
-            consentElement.style.display = "flex"; // Ensure visibility when needed
+            consentElement.style.display = "flex";
         }
     }
 }
-
-// Initialize GDPR consent system
 const gdpr = new GDPR();
 
 var content = document.querySelector(".gdpr-content");
 var chev = document.querySelector(".fa-chevron-up");
+var open = false;
 
-document.querySelector(".gdpr-consent").addEventListener("mouseover", function () {
+document.querySelector(".gdpr-consent").addEventListener("click", function () {
     if (content) {
-        content.style.display = "flex";
-        chev.classList.remove('fa-chevron-up');
-        chev.classList.add('fa-chevron-down');
-    }
-});
 
-document.querySelector(".gdpr-consent").addEventListener("mouseout", function () {
-    if (content) {
-        if (gdpr.cookieStatus() !== 'accept' && gdpr.cookieStatus() !== 'reject') {
-            content.style.display = "flex"; // Keep visible if not accepted/rejected
+        if (open) {
+            open = false;
+            content.style.display = "none";
+            chev.classList.remove('fa-chevron-down');
+            chev.classList.add('fa-chevron-up');
         } else {
-            content.style.display = "none"; // Hide if already accepted/rejected
+            open = true;
+            content.style.display = "flex";
+            chev.classList.remove('fa-chevron-up');
+            chev.classList.add('fa-chevron-down');
         }
-        chev.classList.remove('fa-chevron-down');
-        chev.classList.add('fa-chevron-up');
     }
 });

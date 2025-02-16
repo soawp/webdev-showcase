@@ -166,4 +166,31 @@ body {
     text-decoration: none;
 }
 
+form div label {
+    font-weight: 700;
+}
+
+form div input,
+form div textarea {
+    background-color: #0c0b0b !important;
+    border: 2px solid white !important;
+    color: white !important;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+    form div input::placeholder,
+    form div textarea::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    form div input:focus,
+    form div textarea:focus {
+        border-color: #007bff !important;
+        background-color: #181818 !important;
+    }
+
+
+
 

@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="~/Showcase_Profielpagina.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,600;1,600&display=swap" rel="stylesheet"></head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
 <body>
     <div class="custom-cursor"></div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/nosparkle.svg" class="website-logo" id="websiteLogo"/>
+                    <img src="~/images/lowglo.svg" class="website-logo" id="websiteLogo"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -45,30 +47,51 @@
         <main role="main">
             @RenderBody()
         </main>
-        <hr class="white-line" />
     </div>
-    <footer class="footer text-muted" id="page3">
+    <footer class="footer text-muted pt-3" id="page3">
+        <hr class="white-line" />
         <div class="d-flex footer-content">
             <div class="footer-contact-information">
                 <h5 class="footer-content-title">Contact Informatie.</h5>
             </div>
             <div class="footer-contact-form">
                 <h5 class="footer-content-title">Stuur mij een bericht.</h5>
-                <form>
-                    <div class="row">
-                        <div class="col contact-form">
-                            <input type="text" class="form-control" placeholder="First name">
-                            <input type="text" class="form-control" placeholder="Last name">
-                            <textarea class="form-control"></textarea>
-                        </div>
+                <div class="information-box">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <form method="post" action="/Contact/SendTestEmail" class="p-4" name="emailForm" id="demo-form" onsubmit="return validateForm()">
+                    <div class="mb-3">
+                        <label for="name" class="form-label text-white">Naam</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Uw naam" required>
                     </div>
-                    <button type="submit">Verstuur</button>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-white">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Uw e-mailadres" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label text-white">Telefoonnummer</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Uw telefoonnummer">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label text-white">Onderwerp</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Onderwerp van uw bericht" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label text-white">Bericht</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Uw bericht" required></textarea>
+                    </div>
+
+                    <button type="submit" onclick="submitForm(event)" class="gdpr-btn-outlined w-100">Verzenden</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <img src="~/images/loglo.svg" class="footer-logo" />
-            <span>&copy; 2025 - Daan de Jager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
+            <img src="~/images/lowglo.svg" class="footer-logo" />
+            <span style="color: white;">&copy; 2025 - Daan de Jager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
         </div>
     </footer>
 
@@ -86,16 +109,16 @@
             </div>
 
             <div class="gdpr-consent__choice">
-                <button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
-                <button class="gdpr-consent__button--reject">Neu, misschien later</button>
+                <button class="gdpr-btn-outlined gdpr-consent__button--accept">Ja, natuurlijk</button>
+                <button class="gdpr-btn-outlined gdpr-consent__button--reject">Neu, misschien later</button>
             </div>
         </div>
 
     </section>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LddyNIqAAAAAOiN9fEKqErBKVpkE99_RwCjY58t"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha384-vjKzLC33bLWIj4O9FQ6k9nGuUPxolI+bJVoWnmG1Zc3UZF6x2xM+K5B+VJHpgcJc" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

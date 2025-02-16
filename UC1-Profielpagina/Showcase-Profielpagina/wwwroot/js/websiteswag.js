@@ -1,42 +1,4 @@
-﻿// progress indicator
-
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".page-section");
-    const dots = document.querySelectorAll(".dot");
-
-    const observerOptions = {
-        root: null, // Uses viewport
-        rootMargin: "0px",
-        threshold: 0.6 // At least 60% visible to trigger
-    };
-
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bgColor = window.getComputedStyle(entry.target).backgroundColor;
-                const index = [...sections].indexOf(entry.target);
-
-                dots.forEach(dot => {
-                    dot.classList.remove("active");
-                    dot.style.backgroundColor = "gray";
-                });
-
-                dots[index].classList.add("active");
-
-                if (bgColor === "rgb(38, 38, 38)") {
-                    dots[index].style.backgroundColor = "#f3f4f1";
-                } else {
-                    dots[index].style.backgroundColor = "#262626";
-                }
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sections.forEach(section => observer.observe(section));
-});
-
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
     const eyes = document.querySelectorAll(".cls-1");  // Select eye outlines
     const pupils = document.querySelectorAll(".pupil"); // Select pupils
 
@@ -89,44 +51,6 @@ function invertColor(rgb) {
 
     return `rgb(${inverted[0]}, ${inverted[1]}, ${inverted[2]})`;
 }
-
-
-//horizontal scroll
-
-//const stickySections = [...document.querySelectorAll('.sticky')];
-
-//const aboutme = "<h1>Over Mij</h1>";
-//const workExperience = "Werkervaring";
-//const educations = "Opleiding";
-//const skills = "Vaardigheden";
-
-//const allSections = [aboutme, workExperience, educations, skills];
-
-//// Loop through each section and append its respective content
-//stickySections.forEach((stickySection, index) => {
-//    const scrollSection = stickySection.querySelector('.scroll-section');
-
-//    if (allSections[index]) {
-//        const sectionContent = document.createElement('div');
-//        sectionContent.innerHTML = allSections[index];
-//        scrollSection.appendChild(sectionContent);
-//    }
-//});
-
-//window.addEventListener('scroll', (e) => {
-//    for (let i = 0; i < stickySections.length; i++) {
-//        transform(stickySections[i]);
-//    }
-//})
-
-//function transform(section) {
-//    const offsetTop = section.parentElement.offsetTop;
-//    const scrollSection = section.querySelector('.scroll-section');
-//    let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-
-//    percentage = percentage < 0 ? 0 : percentage > 400 ? 400 : percentage;
-//    scrollSection.style.transform = `translate3D(${-(percentage)}vw, 0 0)`
-//}
 
 document.addEventListener('DOMContentLoaded', function () {
     var windowWidth = window.innerWidth;

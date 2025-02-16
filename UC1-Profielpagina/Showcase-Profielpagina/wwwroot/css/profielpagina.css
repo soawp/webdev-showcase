@@ -1,8 +1,12 @@
 ﻿/*mobile version*/
+
+* {
+    font-family: "Roboto Slab", serif !important;
+}
 .page {
     display: flex;
     flex-direction: column;
-    font-family: Arial;
+    font-family: "Roboto Slab", serif;
     color: white;
     background-color: var(--main-bg-color);
     position: relative;
@@ -387,6 +391,7 @@
     width: 100px;
 }
 .footer-bottom {
+    margin: 20px;
     color: #262626;
     font-weight: 600;
     display: flex;
@@ -670,11 +675,35 @@ body {
     width: 80%;
 }
 
-
-
+.information-box {
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+}
+.contact-page {
+    height: 80vh;
+    background-color: #0c0b0b;
+    display: flex;
+    color: white;
+    align-content: center;
+    flex-direction: column;
+    padding-left: 5%;
+}
 /*mobile*/
-
 @media only screen and (max-width: 800px) {
+    .footer-content {
+       flex-direction: column;
+       justify-content: center;
+       align-content: center;
+    }
+    .footer-contact-information {
+        width: 100%;
+    }
+    .footer-contact-form {
+        width: 100%;
+    }
     .intro-text .btn-outlined {
         width: 100%;
     }
