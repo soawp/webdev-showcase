@@ -27,9 +27,9 @@ namespace Showcase_Profielpagina.Controllers
                     using (var mailMessage = new MailMessage())
                     {
                         mailMessage.From = new MailAddress(email);
-                        mailMessage.To.Add("daan.de.jager@windesheim.nl");
+                        mailMessage.To.Add("daandejager2002@gmail.com");
                         mailMessage.Subject = subject;
-                        mailMessage.Body = message;
+                        mailMessage.Body = message + $"\n\n Gestuurd door: {name}, {email}, {phone}";
                         mailMessage.IsBodyHtml = false;
 
                         client.Send(mailMessage);

@@ -2,7 +2,6 @@
     --main-bg-color: #0c0b0b;
 }
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -15,40 +14,32 @@
 html {
     font-size: 14px;
     background-color: var(--main-bg-color);
-}
-
-header {
-    height: 10vh;
-    background-color: var(--main-bg-color);
-    color: #262626;
     position: relative;
-}
-
-.navbar {
-    background-color: var(--main-bg-color);
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    cursor: none;
 }
 
 main {
     background-color: #f3f4f1;
+}
+
+header {
+    height: fit-content;
+    background-color: var(--main-bg-color);
+    color: #262626;
+    position: relative;
+    z-index: 100;
+}
+
+.navbar {
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-brand {
@@ -66,59 +57,19 @@ main {
     color: #262626;
     font-weight: 700;
 }
-.nav-link:hover{
-    color: #181818;
 
-}
-
-/*slide in for nav*/
-
-@keyframes nav-slide {
-    0% {
-        opacity: 0;
-        transform: translateX(-30px);
+    .nav-link:hover {
+        color: #181818;
     }
-
-    60% {
-        opacity: 1;
-        transform: translateX(5px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.navbar-nav, .navbar-brand {
-    animation: nav-slide 2s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/*slide for logo?*/
-
-.website-logo {
-    width: 70px;
-    fill: white;
-    color: white;
-}
-
-.btn-outlined {
-    padding: 5px 15px 5px 15px !important;
-    border: 2px solid white;
-    border-radius: 20px;
-    color: white;
-    font-weight: 500;
-    transition: all 0.5s linear;
-    text-align: center;
-}
-
-.btn-outlined:hover{
-    color: var(--main-bg-color);
-    background-color: white;
-}
-
 
 .navbar-nav {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .white-line {
@@ -131,21 +82,6 @@ main {
     justify-self: center;
     margin: auto;
     margin-top: 10px;
-}
-
-@media only screen and (max-width: 800px) {
-    .header {
-        height: fit-content;
-        z-index: 100;
-    }
-    .navbar-nav {
-        display: flex;
-        flex-direction: row !important;
-    }
-}
-
-body {
-    cursor: none;
 }
 
 .custom-cursor {
@@ -161,10 +97,22 @@ body {
     transition: transform 0.1s linear;
 }
 
-.btn-outlined:hover {
-    cursor: none;
-    text-decoration: none;
+.btn-outlined {
+    padding: 5px 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.5s linear;
+    text-align: center;
 }
+
+    .btn-outlined:hover {
+        color: var(--main-bg-color);
+        background-color: white;
+        cursor: none;
+        text-decoration: none;
+    }
 
 form div label {
     font-weight: 700;
@@ -191,6 +139,53 @@ form div textarea {
         background-color: #181818 !important;
     }
 
+.website-logo {
+    width: 70px;
+    fill: white;
+    color: white;
+}
 
 
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .navbar-nav, .navbar-brand {
+        animation: nav-slide 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .website-logo {
+        width: 70px;
+        fill: white;
+        color: white;
+    }
+
+    .btn-outlined {
+        padding: 10px 20px;
+        font-size: 1.2rem; 
+    }
+    .gdpr-consent {
+        width: 30%;
+    }
+}
+
+@keyframes nav-slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

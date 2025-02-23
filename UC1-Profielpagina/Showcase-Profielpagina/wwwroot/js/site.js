@@ -7,6 +7,18 @@
     infoBox.appendChild(span);
 }
 
+function sanitizeInput(input) {
+    input = input.replace(/<script.*?>.*?<\/script>/gi, "");
+    input = input.replace(/<style.*?>.*?<\/style>/gi, "");
+    input = input.replace(/<!--.*?-->/gi, ""); 
+    input = input.replace(/<\/?[^>]+(>|$)/g, function (tag) {
+        const allowedTags = ['<b>', '</b>', '<i>', '</i>', '<h1>', '</h1>', '<h2>', '</h2>', '<h3>', '</h3>', '<ul>', '</ul>', '<ol>', '</ol>', '<li>', '</li>', '<p>', '</p>', '<br>', '</br>', '<strong>', '</strong>'];
+
+        return allowedTags.includes(tag.toLowerCase()) ? tag : '';
+    });
+    return input;
+}
+
 function validateForm() {
     let form = document.forms["emailForm"];
 
@@ -44,7 +56,7 @@ function validateForm() {
         showInfobox("Bericht mag niet langer zijn dan 600 tekens.");
         return false;
     }
-
+    form["message"].value = sanitizeInput(form["message"].value);
     return true;
 }
 
