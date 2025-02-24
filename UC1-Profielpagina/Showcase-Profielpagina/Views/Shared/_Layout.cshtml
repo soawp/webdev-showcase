@@ -53,41 +53,59 @@
         <div class="d-flex footer-content">
             <div class="footer-contact-information">
                 <h5 class="footer-content-title">Foto van mij.</h5>
-                <img src="~/images/fotovoorwebsite.jpg" style="width: 50%;">
+                <div class="footer-contact-informatio-data">
+                    <img src="~/images/fotovoorwebsite.jpg" class="foto-daan">
+                </div>
             </div>
             <div class="footer-contact-form">
-                <h5 class="footer-content-title">Stuur mij een bericht.</h5>
+                <h5 class="footer-content-title">Stuur DAAN een bericht.</h5>
                 <div class="information-box">
                     <i class="fa-solid fa-circle-exclamation"></i>
                 </div>
-                <form method="post" action="/Contact/SendTestEmail" class="p-4" name="emailForm" id="demo-form" onsubmit="return validateForm()">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+                }
+
+                <form method="post" action="/Contact/SendTestEmail" class="p-4" name="emailForm" id="contact-form">
                     <div class="mb-3">
-                        <label for="name" class="form-label text-white">Naam</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Uw naam" required>
+                        <label for="firstName" class="form-label text-white">Voornaam</label>
+                        <input type="text" class="form-control" id="firstName" name="FirstName" placeholder="Uw voornaam" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label text-white">Achternaam</label>
+                        <input type="text" class="form-control" id="lastName" name="LastName" placeholder="Uw achternaam" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label text-white">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Uw e-mailadres" required>
+                        <input type="email" class="form-control" id="email" name="Email" placeholder="Uw e-mailadres" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="phone" class="form-label text-white">Telefoonnummer</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Uw telefoonnummer">
+                        <input type="tel" class="form-control" id="phone" name="Phone" placeholder="Uw telefoonnummer">
                     </div>
 
                     <div class="mb-3">
                         <label for="subject" class="form-label text-white">Onderwerp</label>
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Onderwerp van uw bericht" required>
+                        <input type="text" class="form-control" id="subject" name="Subject" placeholder="Onderwerp van uw bericht" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="message" class="form-label text-white">Bericht</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Uw bericht" required></textarea>
+                        <textarea class="form-control" id="message" name="Message" rows="4" placeholder="Uw bericht" required></textarea>
                     </div>
 
-                    <button type="submit" onclick="submitForm(event)" class="gdpr-btn-outlined w-100">Verzenden</button>
+                    <button type="submit" class="gdpr-btn-outlined w-100">Verzenden</button>
                 </form>
+
+
             </div>
         </div>
         <div class="footer-bottom">
@@ -119,7 +137,7 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LddyNIqAAAAAOiN9fEKqErBKVpkE99_RwCjY58t"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha384-vjKzLC33bLWIj4O9FQ6k9nGuUPxolI+bJVoWnmG1Zc3UZF6x2xM+K5B+VJHpgcJc" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -22,43 +22,75 @@ function sanitizeInput(input) {
 function validateForm() {
     let form = document.forms["emailForm"];
 
-    let name = form["name"].value.trim();
-    let email = form["email"].value.trim();
-    let subject = form["subject"].value.trim();
-    let message = form["message"].value.trim();
+    let firstName = form["FirstName"].value.trim();
+    let lastName = form["LastName"].value.trim();
+    let email = form["Email"].value.trim();
+    let phone = form["Phone"].value.trim();
+    let subject = form["Subject"].value.trim();
+    let message = form["Message"].value.trim();
 
-    if (name === "") {
-        showInfobox("Naam moet worden ingevuld.");
+    console.log("Validating form...");
+
+    // Reset all invalid classes
+    let fields = ["FirstName", "LastName", "Email", "Phone", "Subject", "Message"];
+    fields.forEach(field => form[field].classList.remove("is-invalid"));
+
+    if (firstName === "") {
+        showInfobox("Voornaam moet worden ingevuld.");
+        form["FirstName"].classList.add("is-invalid");
+        return false;
+    }
+
+    if (lastName === "") {
+        showInfobox("Achternaam moet worden ingevuld.");
+        form["LastName"].classList.add("is-invalid");
         return false;
     }
 
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         showInfobox("Voer een geldig e-mailadres in.");
+        form["Email"].classList.add("is-invalid");
+        return false;
+    }
+
+    if (phone !== "" && !/^\+?[0-9\s-]{7,15}$/.test(phone)) {
+        showInfobox("Voer een geldig telefoonnummer in.");
+        form["Phone"].classList.add("is-invalid");
         return false;
     }
 
     if (subject.length < 1) {
         showInfobox("Onderwerp mag niet leeg zijn.");
+        form["Subject"].classList.add("is-invalid");
         return false;
     }
+
     if (message.length < 1) {
         showInfobox("Bericht mag niet leeg zijn.");
+        form["Message"].classList.add("is-invalid");
         return false;
     }
 
     if (subject.length > 200) {
         showInfobox("Onderwerp mag niet langer zijn dan 200 tekens.");
+        form["Subject"].classList.add("is-invalid");
         return false;
     }
 
     if (message.length > 600) {
         showInfobox("Bericht mag niet langer zijn dan 600 tekens.");
+        form["Message"].classList.add("is-invalid");
         return false;
     }
-    form["message"].value = sanitizeInput(form["message"].value);
+
+    // Sanitize message input
+    form["Message"].value = sanitizeInput(message);
+
+    console.log("Form validation passed!");
     return true;
 }
+
 
 function submitForm(event) {
     event.preventDefault();
@@ -68,7 +100,7 @@ function submitForm(event) {
     grecaptcha.ready(function () {
         grecaptcha.execute('6LddyNIqAAAAAOiN9fEKqErBKVpkE99_RwCjY58t', { action: 'submit' })
             .then(function (token) {
-                let form = document.getElementById('demo-form');
+                let form = document.getElementById('contact-form');
                 let tokenInput = document.createElement('input');
                 tokenInput.type = 'hidden';
                 tokenInput.name = 'g-recaptcha-response';
@@ -85,4 +117,4 @@ function submitForm(event) {
     });
 }
 
-document.getElementById("demo-form").addEventListener("submit", submitForm);
+document.getElementById("contact-form").addEventListener("submit", submitForm);

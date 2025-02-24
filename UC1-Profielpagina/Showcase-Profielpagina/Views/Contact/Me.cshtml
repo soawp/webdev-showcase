@@ -5,12 +5,12 @@
 <div class="contact-page">
     @if (TempData["SuccessMessage"] != null)
     {
-        <p style="color: green;">@TempData["SuccessMessage"]</p>
+        <p class="alert alert-success">@TempData["SuccessMessage"]</p>
     }
 
     @if (TempData["ErrorMessage"] != null)
     {
-        <p style="color: red;">@TempData["ErrorMessage"]</p>
+        <p class="alert alert-danger">@TempData["ErrorMessage"]</p>
     }
 
     <h1 id="content-gpdr-consent-status"></h1>

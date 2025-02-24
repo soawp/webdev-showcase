@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Showcase_Profielpagina.Models;
 using System;
 using System.Net;
 using System.Net.Mail;
@@ -13,8 +14,14 @@ namespace Showcase_Profielpagina.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendTestEmail(string name, string email, string phone, string subject, string message)
+        public IActionResult SendTestEmail(Contactform model)
         {
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Er zijn validatiefouten. Controleer het formulier en probeer het opnieuw.";
+                return View("Me");
+            }
+
             try
             {
                 using (var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525))
@@ -26,10 +33,10 @@ namespace Showcase_Profielpagina.Controllers
 
                     using (var mailMessage = new MailMessage())
                     {
-                        mailMessage.From = new MailAddress(email);
+                        mailMessage.From = new MailAddress(model.Email);
                         mailMessage.To.Add("daandejager2002@gmail.com");
-                        mailMessage.Subject = subject;
-                        mailMessage.Body = message + $"\n\n Gestuurd door: {name}, {email}, {phone}";
+                        mailMessage.Subject = model.Subject;
+                        mailMessage.Body = $"{model.Message}\n\nGestuurd door: {model.FirstName} {model.LastName}, {model.Email}, {model.Phone}";
                         mailMessage.IsBodyHtml = false;
 
                         client.Send(mailMessage);
